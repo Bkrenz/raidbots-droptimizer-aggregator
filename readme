@@ -1,0 +1,11 @@
+# Droptimizer Aggregator
+
+This Droptimizer Aggregator utilizes a list of Droptimizer links to pull data and aggregate it into a spreadsheet for consumption.
+
+It requires an environment with the following variables:
+
+- BLIZZ_CLIENT : Client ID for the Blizzard API
+- BLIZZ_SECRET : Client Secret for the Blizzard aPI
+- SPREADSHEET_NAME : The name of the spreadsheet as set up through Google APIs.
+
+It also requires a `creds.json` file with credentials for the Google Sheets and Drive APIs.
