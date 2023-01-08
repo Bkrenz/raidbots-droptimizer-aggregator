@@ -235,7 +235,7 @@ def get_boss_summary(data: dict):
             if boss_name not in player_data:
                 player_data[boss_name] = 0
             upgrade_value = max(0, data[player][item])
-            player_data[boss_name] = max(upgrade_value, player_data[boss_name])
+            player_data[boss_name] += upgrade_value
         
         # Add player data to for boss
         for boss in player_data:
@@ -261,9 +261,9 @@ def main():
 
     # Retrieve list of reports
     links_sheet = spreadsheet.worksheet('Links')
-    mythic_reports_list = links_sheet.col_values(2)[1:]
-    heroic_reports_list = links_sheet.col_values(3)[1:]
-    normal_reports_list = links_sheet.col_values(4)[1:]
+    mythic_reports_list = [x for x in links_sheet.col_values(2)[1:] if x]
+    heroic_reports_list = [x for x in links_sheet.col_values(3)[1:] if x]
+    normal_reports_list = [x for x in links_sheet.col_values(4)[1:] if x]
 
     # Run Mythic Parses
     mythic_dataframe = None
